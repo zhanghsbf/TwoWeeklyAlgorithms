@@ -35,7 +35,7 @@ public class ZT02 {
 
     public static void zt02(int jinzhi, String beijianshu, String jianshu){
 
-        if (beijianshu.length() != 1 && jianshu.length() != 1 && (beijianshu.startsWith("0") || jianshu.startsWith("0"))){
+        if (beijianshu.startsWith("0") || jianshu.startsWith("0")){
             System.out.println(-1);
             return;
         }
@@ -66,5 +66,20 @@ public class ZT02 {
     }
 
     public static void main(String[] args) {
+        /**
+         *  输入
+         *     2 11 1
+         *     输出
+         *     0 10
+         *     说明
+         *     按二进制计算 11 -1 ，计算正常，0表示符号为正数，结果为10
+         *     示例2:
+         *     输入
+         *     8 07 1
+         *     输出
+         *     -1
+         */
+        zt02(2,"11", "1");
+        zt02(8,"07", "1");
     }
 }

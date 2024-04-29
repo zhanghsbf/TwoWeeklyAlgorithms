@@ -15,7 +15,7 @@ import java.util.Scanner;
  * 输出
  * 3
  */
-public class ZT02 {
+public class CT02 {
     public static void main(String[] args) {
         findArrayMiddle();
     }

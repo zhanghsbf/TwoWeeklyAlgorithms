@@ -20,7 +20,7 @@ import java.util.*;
  * 输出
  * 2
  */
-public class ZT01 {
+public class CT01 {
     public static void main(String[] args) {
         intervalOverlap();
     }

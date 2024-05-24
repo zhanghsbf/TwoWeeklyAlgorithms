@@ -8,30 +8,60 @@ import sun.plugin.javascript.navig.AnchorArray;
  * @author: zyk
  */
 public class LinkedTableQueue {
+    Node head;
+    Node tail;
 
+    class Node{
+        String item;
+        Node prev;
+        Node next;
 
-    public static void main(String[] args) {
+        public Node(String item){
+            this.item = item;
+        }
+    }
+    public LinkedTableQueue(){
 
     }
-}
-
-class ArrayQueue{
-
-    // 基础数组队列功能, 入队, 出队
-    private String[] items;
-    private int n = 0;
-    private int head = 0;
-    private int tail = 0;
-
-    public ArrayQueue(int capacity){
-        items = new String[capacity];
-    }
-    public void enqueue(String item){
-        
+    public boolean enqueue(String item){
+        // 链表不用搬了
+        Node newNode = new Node(item);
+        if(tail == null){
+            head = tail = newNode;
+        } else {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        return true;
     }
 
     public String dequeue(){
-        return null;
+        // 如果 head == tail 表示队列为空
+        if (head == null) return null;
+        String item = head.item;
+        if (head.next == null){
+            tail = null;
+            head = null;
+        } else {
+            head = head.next;
+        }
+        return item;
     }
 
+    public static void main(String[] args) {
+        LinkedTableQueue linkedQueue = new LinkedTableQueue();
+        linkedQueue.enqueue("a");
+        linkedQueue.enqueue("b");
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+        linkedQueue.enqueue("c");
+
+        linkedQueue.enqueue("d");
+
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+        System.out.println(linkedQueue.dequeue());
+    }
 }
